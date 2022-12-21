@@ -1,0 +1,103 @@
+
+
+2022-12-21 14:44:01,630 INFO: errors [in /Users/mide/Project/fyyur1/app.py:844]
+2022-12-21 14:47:04,201 INFO: errors [in /Users/mide/Project/fyyur1/app.py:844]
+2022-12-21 14:47:56,512 INFO: errors [in /Users/mide/Project/fyyur1/app.py:844]
+2022-12-21 14:48:51,445 INFO: errors [in /Users/mide/Project/fyyur1/app.py:844]
+2022-12-21 14:56:13,300 ERROR: Exception on /artists/create [POST] [in /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/flask/app.py:1741]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/mide/Project/fyyur1/app.py", line 723, in create_artist_submission
+    return render_template('forms/new_venue.html', form=form)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/mide/Project/fyyur1/templates/forms/new_venue.html", line 1, in top-level template code
+    {% extends 'layouts/main.html' %}
+  File "/Users/mide/Project/fyyur1/templates/layouts/main.html", line 103, in top-level template code
+    {% block content %}{% endblock %}
+  File "/Users/mide/Project/fyyur1/templates/forms/new_venue.html", line 24, in block 'content'
+    {{ form.address(class_ = 'form-control', autofocus = true) }}
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/jinja2/utils.py", line 83, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+jinja2.exceptions.UndefinedError: 'forms.ArtistForm object' has no attribute 'address'
+2022-12-21 14:57:49,225 ERROR: Exception on /artists/create [POST] [in /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/flask/app.py:1741]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.StringDataRightTruncation: value too long for type character varying(500)
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/mide/Project/fyyur1/app.py", line 711, in create_artist_submission
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1451, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 3444, in flush
+    self._flush(objects)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 3583, in _flush
+    with util.safe_reraise():
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 210, in raise_
+    raise exception
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 3544, in _flush
+    flush_context.execute()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    _emit_insert_statements(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 1238, in _emit_insert_statements
+    result = connection._execute_20(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 210, in raise_
+    raise exception
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.DataError: (psycopg2.errors.StringDataRightTruncation) value too long for type character varying(500)
+
+[SQL: INSERT INTO "Artist" (name, city, state, phone, genres, image_link, facebook_link, seeking_talent, seeking_description, past_shows, upcoming_shows, website_link, seeking_venue) VALUES (%(name)s, %(city)s, %(state)s, %(phone)s, %(genres)s::VARCHAR[], %(image_link)s, %(facebook_link)s, %(seeking_talent)s, %(seeking_description)s, %(past_shows)s, %(upcoming_shows)s, %(website_link)s, %(seeking_venue)s) RETURNING "Artist".id]
+[parameters: {'name': 'WIZKID', 'city': 'Lagos', 'state': 'Lagos', 'phone': '+234 8575369234', 'genres': ['Blues'], 'image_link': 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUUExMVFRUXFxYYFxgXGBgXHRcaHRcXGBoXGBgdHSggHR8lGxYXITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg ... (15741 characters truncated) ... Psd47zcuXQwPP8eyKfWD0sefID+xqRpy4ggSDPYixHuKGBJJN7CDB/m/vUrLhi+5/L+1Iwtw2CLlwC/PaocS6SUixJ2+W9VyuE9j/AL188rUpPK0irtQKp2VBeViTv8q+o0hVhX1GzFKZGL//2Q==', 'facebook_link': 'https://www.facebook.com/wizkidmusic/', 'seeking_talent': None, 'seeking_description': 'Biggest Bird', 'past_shows': None, 'upcoming_shows': None, 'website_link': 'https://www.wizkidofficial.com/', 'seeking_venue': False}]
+(Background on this error at: https://sqlalche.me/e/14/9h9h)
