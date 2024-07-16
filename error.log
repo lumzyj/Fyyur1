@@ -101,3 +101,1876 @@ sqlalchemy.exc.DataError: (psycopg2.errors.StringDataRightTruncation) value too 
 [SQL: INSERT INTO "Artist" (name, city, state, phone, genres, image_link, facebook_link, seeking_talent, seeking_description, past_shows, upcoming_shows, website_link, seeking_venue) VALUES (%(name)s, %(city)s, %(state)s, %(phone)s, %(genres)s::VARCHAR[], %(image_link)s, %(facebook_link)s, %(seeking_talent)s, %(seeking_description)s, %(past_shows)s, %(upcoming_shows)s, %(website_link)s, %(seeking_venue)s) RETURNING "Artist".id]
 [parameters: {'name': 'WIZKID', 'city': 'Lagos', 'state': 'Lagos', 'phone': '+234 8575369234', 'genres': ['Blues'], 'image_link': 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUUExMVFRUXFxYYFxgXGBgXHRcaHRcXGBoXGBgdHSggHR8lGxYXITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg ... (15741 characters truncated) ... Psd47zcuXQwPP8eyKfWD0sefID+xqRpy4ggSDPYixHuKGBJJN7CDB/m/vUrLhi+5/L+1Iwtw2CLlwC/PaocS6SUixJ2+W9VyuE9j/AL188rUpPK0irtQKp2VBeViTv8q+o0hVhX1GzFKZGL//2Q==', 'facebook_link': 'https://www.facebook.com/wizkidmusic/', 'seeking_talent': None, 'seeking_description': 'Biggest Bird', 'past_shows': None, 'upcoming_shows': None, 'website_link': 'https://www.wizkidofficial.com/', 'seeking_venue': False}]
 (Background on this error at: https://sqlalche.me/e/14/9h9h)
+2024-07-05 04:18:12,327 INFO: errors [in C:\Users\Olu\Desktop\Fyyur1\app.py:844]
+2024-07-05 04:18:58,203 ERROR: Exception on /shows [GET] [in C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\app.py", line 744, in shows
+    ).all()
+      ^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2772, in all
+    return self._iter().all()
+           ^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2915, in _iter
+    result = self.session.execute(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1713, in execute
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1552, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2024-07-05 04:19:01,207 ERROR: Exception on /venues [GET] [in C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\app.py", line 76, in venues
+    print("Number of Venue AllCity:",citylen.count())
+                                     ^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 3175, in count
+    return self._from_self(col).enable_eagerloads(False).scalar()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2892, in scalar
+    ret = self.one()
+          ^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2869, in one
+    return self._iter().one()
+           ^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2915, in _iter
+    result = self.session.execute(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1713, in execute
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1552, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2024-07-05 04:19:09,763 ERROR: Exception on /artists [GET] [in C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\app.py", line 356, in artists
+    Artists = Artist.query.order_by(Artist.name).all()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2772, in all
+    return self._iter().all()
+           ^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2915, in _iter
+    result = self.session.execute(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1713, in execute
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1552, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2024-07-05 04:19:17,571 ERROR: Exception on /shows [GET] [in C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\app.py", line 744, in shows
+    ).all()
+      ^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2772, in all
+    return self._iter().all()
+           ^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2915, in _iter
+    result = self.session.execute(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1713, in execute
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1552, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2024-07-05 04:19:23,765 ERROR: Exception on /venues [GET] [in C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\app.py", line 76, in venues
+    print("Number of Venue AllCity:",citylen.count())
+                                     ^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 3175, in count
+    return self._from_self(col).enable_eagerloads(False).scalar()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2892, in scalar
+    ret = self.one()
+          ^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2869, in one
+    return self._iter().one()
+           ^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2915, in _iter
+    result = self.session.execute(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1713, in execute
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1552, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2024-07-05 04:23:10,544 ERROR: Exception on /venues/create [POST] [in C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\app.py", line 314, in create_venue_submission
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1451, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
+    self._prepare_impl()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 3444, in flush
+    self._flush(objects)
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 3583, in _flush
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 3544, in _flush
+    flush_context.execute()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 630, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\persistence.py", line 212, in save_obj
+    for (
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\persistence.py", line 373, in _organize_states_for_save
+    for state, dict_, mapper, connection in _connections_for_states(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1737, in _connections_for_states
+    connection = uowtransaction.transaction.connection(base_mapper)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 626, in connection
+    return self._connection_for_bind(bind, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 735, in _connection_for_bind
+    conn = self._parent._connection_for_bind(bind, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2024-07-05 04:23:19,717 ERROR: Exception on /venues [GET] [in C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\app.py", line 76, in venues
+    print("Number of Venue AllCity:",citylen.count())
+                                     ^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 3175, in count
+    return self._from_self(col).enable_eagerloads(False).scalar()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2892, in scalar
+    ret = self.one()
+          ^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2869, in one
+    return self._iter().one()
+           ^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2915, in _iter
+    result = self.session.execute(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1713, in execute
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1552, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2024-07-05 04:23:28,194 ERROR: Exception on /shows [GET] [in C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\app.py", line 744, in shows
+    ).all()
+      ^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2772, in all
+    return self._iter().all()
+           ^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2915, in _iter
+    result = self.session.execute(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1713, in execute
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1552, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2024-07-05 04:23:41,679 ERROR: Exception on /shows/create [POST] [in C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\app.py", line 811, in create_show_submission
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1451, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
+    self._prepare_impl()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 3444, in flush
+    self._flush(objects)
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 3583, in _flush
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 3544, in _flush
+    flush_context.execute()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 630, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\persistence.py", line 212, in save_obj
+    for (
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\persistence.py", line 373, in _organize_states_for_save
+    for state, dict_, mapper, connection in _connections_for_states(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1737, in _connections_for_states
+    connection = uowtransaction.transaction.connection(base_mapper)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 626, in connection
+    return self._connection_for_bind(bind, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 735, in _connection_for_bind
+    conn = self._parent._connection_for_bind(bind, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2024-07-05 04:23:56,151 ERROR: Exception on /venues [GET] [in C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\app.py", line 76, in venues
+    print("Number of Venue AllCity:",citylen.count())
+                                     ^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 3175, in count
+    return self._from_self(col).enable_eagerloads(False).scalar()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2892, in scalar
+    ret = self.one()
+          ^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2869, in one
+    return self._iter().one()
+           ^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2915, in _iter
+    result = self.session.execute(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1713, in execute
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1552, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2024-07-05 04:24:04,108 ERROR: Exception on /artists [GET] [in C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\app.py", line 356, in artists
+    Artists = Artist.query.order_by(Artist.name).all()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2772, in all
+    return self._iter().all()
+           ^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2915, in _iter
+    result = self.session.execute(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1713, in execute
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1552, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2024-07-05 04:35:02,746 ERROR: Exception on /venues [GET] [in C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\app.py", line 76, in venues
+    print("Number of Venue AllCity:",citylen.count())
+                                     ^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 3175, in count
+    return self._from_self(col).enable_eagerloads(False).scalar()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2892, in scalar
+    ret = self.one()
+          ^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2869, in one
+    return self._iter().one()
+           ^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\query.py", line 2915, in _iter
+    result = self.session.execute(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1713, in execute
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 1552, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\orm\session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3315, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3394, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3364, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 2198, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\base.py", line 3361, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 325, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 888, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 491, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 145, in _do_get
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\impl.py", line 143, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 271, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in __init__
+    self.__connect()
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 684, in __connect
+    with util.safe_reraise():
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\util\compat.py", line 210, in raise_
+    raise exception
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\pool\base.py", line 680, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\sqlalchemy\engine\default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olu\Desktop\Fyyur1\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
